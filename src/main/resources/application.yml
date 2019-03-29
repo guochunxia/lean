@@ -1,0 +1,78 @@
+spring:
+  redis:
+    password:
+    database: 0
+    port: 6379
+    pool:
+      max-idle: 8
+      min-idle: 0
+      max-active: 8
+      max-wait: -1
+#    host: 127.0.0.1
+    host: 192.144.130.213
+    timeout: 200
+
+  datasource:
+     username: root
+     password: Gcx380127.
+     url: jdbc:mysql://localhost:3306/gcx?useUnicode=true&characterEncoding=utf-8&useSSL=false
+     #&allowPublicKeyRetrieval=true
+     driver-class-name: com.mysql.jdbc.Driver
+#     filters: stat,wall
+#     initialSize: 5
+#     minIdle: 5
+#     maxActive: 50
+#     maxWait: 60000
+#     timeBetweenEvictionRunsMillis: 60000
+#     maxEvictableIdleTimeMillis:  3000000 # 因为公司防火墙长连接保持最长时间为1小时；此参数一定要结合实际情况进行配置。
+#     validationQuery: select 1 from dual
+#     testWhileIdle: true
+#     testOnBorrow: false
+#     testOnReturn: false
+#     poolPreparedStatements: true
+#     maxPoolPreparedStatementPerConnectionSize: 20
+#     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+     type: com.alibaba.druid.pool.DruidDataSource
+     druid:
+       transaction-query-timeout: 6000
+       min-idle: 5
+       max-active: 10
+       remove-abandoned-timeout: 1800
+       initial-size: 8
+       query-timeout: 6000
+       filters: stat
+
+#spring:
+#  datasource:
+#     username: root
+#     password: Gcx380127.
+#     url: jdbc:mysql://localhost:3306/gcx?useUnicode=true&characterEncoding=utf-8&useSSL=false
+#     driver-class-name: com.mysql.jdbc.Driver
+#     filters: stat,wall
+#     initialSize: 5
+#     minIdle: 5
+#     maxActive: 50
+#     maxWait: 60000
+#     timeBetweenEvictionRunsMillis: 60000
+#     maxEvictableIdleTimeMillis:  3000000 # 因为公司防火墙长连接保持最长时间为1小时；此参数一定要结合实际情况进行配置。
+#     validationQuery: select 1 from dual
+#     testWhileIdle: true
+#     testOnBorrow: false
+#     testOnReturn: false
+#     poolPreparedStatements: true
+#     maxPoolPreparedStatementPerConnectionSize: 20
+#     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+
+mybatis:
+  mapper-locations: classpath:com/gcx/mapper/*.xml
+  type-aliases-package: com.gcx.bean
+
+logging:
+  level:
+    org:
+      springframework:
+        transaction:
+          interceptor: TRACE
+
+

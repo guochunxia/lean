@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gcx.mapper.GoodsMapper" >
+    <resultMap id="result" type="com.gcx.bean.Goods" >
+        <id column="goods_id" property="goodsId" jdbcType="INTEGER" />
+        <result column="goods_nm" property="goodsNm" jdbcType="VARCHAR" />
+        <result column="goods_num" property="goodsNum" jdbcType="INTEGER" />
+    </resultMap>
+
+
+    <sql id="Base_Column_List" > goods_id, goods_nm, goods_num
+    </sql>
+
+
+    <select id="query" resultMap="result" parameterType="java.lang.Integer" >
+        select
+        <include refid="Base_Column_List" /> from goods
+        where goods_id = #{goodsId,jdbcType=INTEGER}
+    </select>
+
+
+    <update id="updateGoodsNum" parameterType="com.gcx.bean.Goods">
+        UPDATE goods set goods_num= goods_num - #{goodsNum}
+        where goods_id=${goodsId}
+    </update>
+
+    <insert id="insertGoods" parameterType="com.gcx.bean.Goods">
+        insert into goods (goods_nm,goods_num) VALUES (#{goodsNm,},#{goodsNum})
+    </insert>
+</mapper>
