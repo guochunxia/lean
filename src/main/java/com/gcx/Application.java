@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @Date 2019/3/26 下午3:48
  * @Version 1.0
  */
-//@MapperScan("com.gcx.mapper")
+@MapperScan("com.gcx.mapper")
 @SpringBootApplication
 @EnableTransactionManagement
 public class Application {
