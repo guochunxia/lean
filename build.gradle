@@ -38,9 +38,13 @@ dependencies {
     //mybatis
     compile ('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.2')
     compileOnly('org.projectlombok:lombok')
-   testCompile('org.projectlombokjectlombok:lombok')
+//   testCompile('org.projectlombokjectlombok:lombok')
 
     compile 'commons-collections:commons-collections:3.2.2'
+
+    compile 'org.openjdk.jol:jol-core:0.8'
+
+    compile 'org.springframework.boot:spring-boot-starter-aop:2.2.0.RELEASE'
 
 
 }
