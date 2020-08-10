@@ -62,22 +62,77 @@ public class ArrayQueue {
             return ret;
         }
 
+//    public static void main(String[] args) {
+//
+//        ArrayQueue arrayQueue = new ArrayQueue(5);
+//        System.out.println(arrayQueue.enqueue("1"));
+//        System.out.println(arrayQueue.enqueue("2"));
+//        System.out.println(arrayQueue.enqueue("3"));
+//        System.out.println(arrayQueue.enqueue("4"));
+//        System.out.println(arrayQueue.enqueue("5"));
+//        System.out.println(arrayQueue.dequeue());
+//        System.out.println(arrayQueue.enqueue("6"));
+//
+//        System.out.println(arrayQueue.dequeue());
+//        System.out.println(arrayQueue.dequeue());
+//        System.out.println(arrayQueue.dequeue());
+//        System.out.println(arrayQueue.dequeue());
+//        System.out.println(arrayQueue.dequeue());
+//
+//    }
+
+//    public static void main(String[] args) {
+//
+//        String [] items = new String[8];
+//        items[5] = "1";
+//        items[6] = "2";
+//        items[7] = "3";
+//        int head = 5;
+//        for (int i = head; i < 7; ++i) {
+//            items[i-head] = items[i];
+//        }
+//        System.out.printf(items.toString());
+//    }
+
     public static void main(String[] args) {
-
-        ArrayQueue arrayQueue = new ArrayQueue(5);
-        System.out.println(arrayQueue.enqueue("1"));
-        System.out.println(arrayQueue.enqueue("2"));
-        System.out.println(arrayQueue.enqueue("3"));
-        System.out.println(arrayQueue.enqueue("4"));
-        System.out.println(arrayQueue.enqueue("5"));
-        System.out.println(arrayQueue.dequeue());
-        System.out.println(arrayQueue.enqueue("6"));
-
-        System.out.println(arrayQueue.dequeue());
-        System.out.println(arrayQueue.dequeue());
-        System.out.println(arrayQueue.dequeue());
-        System.out.println(arrayQueue.dequeue());
-        System.out.println(arrayQueue.dequeue());
-
+            int n = 7;
+            if (n == 1)
+                System.out.println(1);
+            if (n == 2)
+                System.out.println(2);
+            int ret = 0;
+            int pre = 2;
+            int prepre = 1;
+            for (int i = 3; i <= n; ++i) {
+                System.out.println(ret);
+                System.out.println(pre);
+                System.out.println(prepre);
+                ret = pre + prepre;
+                prepre = pre;
+                pre = ret;
+            }
+        System.out.println(ret);
     }
+
+
+
+    // 冒泡排序，a表示数组，n表示数组大小
+    public void bubbleSort(int[] a, int n) {
+        if (n <= 1) return;
+
+        for (int i = 0; i < n; ++i) {
+            // 提前退出冒泡循环的标志位
+            boolean flag = false;
+            for (int j = 0; j < n - i - 1; ++j) {
+                if (a[j] > a[j+1]) { // 交换
+                    int tmp = a[j];
+                    a[j] = a[j+1];
+                    a[j+1] = tmp;
+                    flag = true;  // 表示有数据交换
+                }
+            }
+            if (!flag) break;  // 没有数据交换，提前退出
+        }
+    }
+
 }

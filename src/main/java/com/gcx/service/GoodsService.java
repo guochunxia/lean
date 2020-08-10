@@ -4,6 +4,7 @@ import com.gcx.bean.Goods;
 import com.gcx.mapper.GoodsMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -25,6 +26,7 @@ public class GoodsService {
      */
     @Transactional
     public  void insertGoods(){
+
         Goods goods = new Goods();
         goods.setGoodsNum(3);
         goods.setGoodsNm("就是个goods");
@@ -35,9 +37,11 @@ public class GoodsService {
 
     public List<Goods> queryNum(int goodsId){
 
+
         return goodsMapper.query(goodsId);
     }
 
+    @Transactional
     public int updateGoodsNum(int goodsId,int num){
         List<Goods> goods1 = queryNum(1);
 

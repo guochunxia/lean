@@ -1,5 +1,6 @@
 package com.gcx.reflection;
 
+
 import org.junit.Test;
 
 import java.lang.annotation.Annotation;
@@ -21,7 +22,7 @@ public class ReflectionTest {
     /**
      * 获取class的四种方法
      */
-    @Test
+    @org.junit.Test
     public void test1() throws ClassNotFoundException {
 
         Class<Person> clazz1 = Person.class;
